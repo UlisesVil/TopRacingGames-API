@@ -36,6 +36,13 @@ app.use((req, res, next) => {
 
 
 //Rutas
+app.get('/',(req, res)=>{
+    res.status(200).send(
+        `<body style='background: black;'>
+        <h1 style='color: white;'>Bienvenido a la API REST del Proyecto Movie Cars</h1>
+        </body>`
+    );
+});
 app.use('/api', project_routes);
 
 

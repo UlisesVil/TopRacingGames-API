@@ -21,5 +21,6 @@ router.get('/get-image/:image', ProjectController.getImageFile);
 
 
 router.post('/save-register', RegisterController.saveRegister);
+router.get('/login/:email', RegisterController.getRegister);
 
 module.exports = router;
