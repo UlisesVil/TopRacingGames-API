@@ -12,7 +12,9 @@ var app = express();
 
 
 //Cargar archivos de rutas
+var auth_routes = require('./routes/auth');
 var project_routes = require('./routes/project');
+
 
 // Middlewares es una capa o metodos que se ejecuta antes de la accion de un controlador
 
@@ -43,6 +45,8 @@ app.get('/',(req, res)=>{
         </body>`
     );
 });
+
+app.use('/api', auth_routes);
 app.use('/api', project_routes);
 
 

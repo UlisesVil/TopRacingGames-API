@@ -2,7 +2,6 @@
 
 var express = require('express');
 var ProjectController= require('../controllers/project');
-var RegisterController= require('../controllers/register');
 
 var router = express.Router();
 
@@ -18,9 +17,5 @@ router.put('/project/:id', ProjectController.updateProject);//aqui el id si es o
 router.delete('/project/:id', ProjectController.deleteProject);//aqui el id si es obligatorio y por eso no lleva el ? 
 router.post('/upload-image/:id',multipartMiddleware, ProjectController.uploadImage);//aqui el id si es obligatorio y por eso no lleva el ? 
 router.get('/get-image/:image', ProjectController.getImageFile);
-
-
-router.post('/save-register', RegisterController.saveRegister);
-router.get('/login/:email', RegisterController.getRegister);
 
 module.exports = router;
