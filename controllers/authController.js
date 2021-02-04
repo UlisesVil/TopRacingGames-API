@@ -2,6 +2,8 @@
 
 const User = require('../models/register');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const CONFIG = require('../config/config');
 
 
 var controller ={
@@ -19,9 +21,9 @@ var controller ={
 
         login.email= params.email;
         login.password= params.password;
-        console.log(login.email);
-        console.log(login.password);
-        
+        //console.log(login.email);
+        //console.log(login.password);
+        //console.log(params);
         const query={email: login.email};
 
         if(login.email==null) return res.status(404).send({message:'El registro no Existe'});
@@ -34,8 +36,23 @@ var controller ={
 
                 bcrypt.compare(login.password, user.password)
                     .then(match=>{
-                        if(match) return res.status(200).send({message: 'Acces Granted'});
-                        return res.status(200).send({message: 'Wrong Password'});
+                        if(match){
+                            let payload = {
+                                email: user.email,
+                                name: user.name,
+                                lastName: user.lastName,
+                                role: user.role
+                            }
+                            jwt.sign(payload,CONFIG.SECRET_TOKEN, function(error, token){
+                                if(error){
+                                    res.status(500).send({error});
+                                }else{
+                                    res.status(200).send({message: 'Access Granted', token, payload});
+                                }
+                            });
+                        }else{
+                            res.status(200).send({message: 'Wrong Password'});
+                        }
                     }).catch(error=> {
                         console.log(error);
                         res.status(500).send({error});

@@ -15,9 +15,14 @@ var app = express();
 var auth_routes = require('./routes/auth');
 var project_routes = require('./routes/project');
 
+/*//Revisar el funcionamiento del los headers Authorization y ContentType
+  //enviados del frontend al backend
+var AuthToken = require('./middelwares/authToken');
+app.use('/api', AuthToken); //antes de cualquier ruta se ejecutara el middelware
+*/
+
 
 // Middlewares es una capa o metodos que se ejecuta antes de la accion de un controlador
-
 app.use(bodyParser.urlencoded({extended:false})); //configuracion necesaria para body-parser
 app.use(bodyParser.json());//esto le indica que cualquier tipo de peticion que llegue por el body de la peticion lo tiene que convertir a json
 
@@ -28,6 +33,7 @@ app.use(bodyParser.json());//esto le indica que cualquier tipo de peticion que l
 //de problemas posibles al realizar peticiones AJAX al backend
 // Configurar cabeceras y cors 
 
+
 app.use((req, res, next) => { 
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
@@ -35,6 +41,7 @@ app.use((req, res, next) => {
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
     next();
 });
+
 
 
 //Rutas

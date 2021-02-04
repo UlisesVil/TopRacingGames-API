@@ -20,7 +20,11 @@ var RegisterSchema = Schema({
     },
     role:{
         type: String,
-        required: true
+        default: 'regular',
+        enum:[
+            'regular',
+            'admin'
+        ]
     },
     password:{
         type: String,
