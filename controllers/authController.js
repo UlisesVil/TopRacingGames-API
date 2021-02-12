@@ -38,6 +38,7 @@ var controller ={
                     .then(match=>{
                         if(match){
                             let payload = {
+                                id: user._id,
                                 email: user.email,
                                 name: user.name,
                                 lastName: user.lastName,
