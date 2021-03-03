@@ -2,7 +2,7 @@
 'use strict'
 
 var Project = require('../models/project');
-const { restart } = require('nodemon');
+//const { restart } = require('nodemon');
 var fs = require('fs');    //esta libreria (file Sistem) se carga para la funcion uploadImage() la usaremos para borrar un archivo o un unlink
 var path = require('path');
 

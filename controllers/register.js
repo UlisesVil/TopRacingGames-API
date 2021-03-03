@@ -1,7 +1,7 @@
 'use strict'
 
 var Register = require('../models/register');
-const {restart} = require('nodemon');
+//const {restart} = require('nodemon');
 
 
 

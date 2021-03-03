@@ -36,7 +36,7 @@ var RegisterSchema = Schema({
     },
     last_login_date:{
         type: Date,
-        default: Date.now()
+        default: Date.now
     }
 });
 

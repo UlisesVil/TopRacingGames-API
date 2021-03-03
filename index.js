@@ -2,11 +2,11 @@
 
 var mongoose = require('mongoose');
 var app = require('./app');//no hace falta poner extencion js
-var port = 3700; //numero del puerto que utilizara nuestro proyecto
+var port = process.env.PORT || 3700; //numero del puerto que utilizara nuestro proyecto
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/portafolio')
-//mongoose.connect('mongodb+srv://UlisesVil:Odaiba99*@dbapinodejs.1xodm.mongodb.net/dbapinodejs?retryWrites=true&w=majority')
+//mongoose.connect('mongodb://localhost:27017/portafolio')
+mongoose.connect('mongodb+srv://UlisesVil:Odaiba99*@dbapinodejs.1xodm.mongodb.net/dbapinodejs?retryWrites=true&w=majority')
         .then(()=>{
             //console.log('Conexion a la Base de Datos establecida satisfactoriamente en MongoDB Atlas');
             console.log('Conexion a la Base de Datos establecida satisfactoriamente en MongoDB Local');
@@ -24,8 +24,8 @@ mongoose.connect('mongodb://localhost:27017/portafolio')
         
      
 //Con esto se arregla el proble del error Deprecated "Portfolio es el nombre de tu base de datos"
-        mongoose.connect("mongodb://localhost/portafolio", {
-        //mongoose.connect("mongodb+srv://UlisesVil:Odaiba99*@dbapinodejs.1xodm.mongodb.net/dbapinodejs?retryWrites=true&w=majority", {
+        //mongoose.connect("mongodb://localhost/portafolio", {
+        mongoose.connect("mongodb+srv://UlisesVil:Odaiba99*@dbapinodejs.1xodm.mongodb.net/dbapinodejs?retryWrites=true&w=majority", {
             
             keepAlive: true,
             useNewUrlParser: true,

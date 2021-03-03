@@ -27,7 +27,7 @@ var CommentSchema = Schema({
     },
     date_comment:{
         type: Date,
-        default: Date.now()
+        default: Date.now
     }
 });
 
