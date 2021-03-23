@@ -48,9 +48,46 @@ app.use((req, res, next) => {
 //Rutas
 app.get('/',(req, res)=>{
     res.status(200).send(
-        `<body style='background: black;'>
-        <h1 style='color: white;'>Bienvenido a la API REST del Proyecto Movie Cars</h1>
-        <p>You can enter here <a href="http://top-racing-games.mygamesonline.org">Top Racing Games Site</a></p>
+        `<html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>API Racing Games Site</title>
+            <link rel="icon" type="image/x-icon" href="http://www.espaciosmail.com.mx/assets/images/favicon.ico/ms-icon-310x310.png">
+            <style>
+                body{
+                    background:#181818;
+                    color: white;
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;
+                }
+                .content{
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    width:90%;
+                    margin: auto;
+                    text-align: center;
+                }
+                img{
+                    width:20%;
+                    min-width:200px;
+                    margin-top:30px;
+                }
+                a{
+                    text-decoration:none;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="content">
+                <h1 style='color: white;'>Welcome!! This is the API Rest from The MEAN Stack project: Racing Games</h1>
+                <h2>You can visit the site here: <a href="http://top-racing-games.mygamesonline.org" target="_blank">Racing Games Site</a></h2>
+                <img src="https://media.giphy.com/media/MAjK6dUDas2gKYQdhT/giphy.gif">
+                </div>
         </body>`
     );
 });
