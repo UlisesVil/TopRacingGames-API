@@ -2,9 +2,7 @@
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-
 var CommentSchema = Schema({
-    
     userId:{
         type: String,
         required: true
@@ -30,6 +28,5 @@ var CommentSchema = Schema({
         default: Date.now
     }
 });
-
 
 module.exports = mongoose.model('Comment', CommentSchema);

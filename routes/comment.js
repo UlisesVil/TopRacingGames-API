@@ -2,7 +2,6 @@
 
 var express = require('express');
 var CommentController = require('../controllers/commentController');
-
 var router = express.Router();
 
 router.post('/save-comment', CommentController.saveComment);

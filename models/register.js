@@ -3,7 +3,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt');
-
 var RegisterSchema = Schema({
     name:{
         type: String,
@@ -32,7 +31,7 @@ var RegisterSchema = Schema({
     },
     sign_up_date:{
         type: Date,
-        default: Date.now()
+        default: Date.now
     },
     last_login_date:{
         type: Date,
@@ -49,6 +48,4 @@ RegisterSchema.pre('save', function(next){
     }).catch(error => next(error));
 });
 
-
 module.exports = mongoose.model('Register', RegisterSchema);
-
